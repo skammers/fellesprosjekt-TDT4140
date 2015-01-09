@@ -1,1 +1,2 @@
-# fellesprosjekt-TDT4140
+# Fellesprosjekt
+For TDT4140, vår 2015, gruppe 34
