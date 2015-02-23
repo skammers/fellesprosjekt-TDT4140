@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="429.0" prefWidth="327.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.fellesprosjekt34.client.controllers.AppointmentViewController">
+    <children>
+        <VBox layoutX="50.0" layoutY="14.0" spacing="15.0">
+            <children>
+                <Label layoutX="59.0" layoutY="14.0" text="Appointment">
+                    <font>
+                        <Font size="36.0" />
+                    </font>
+                </Label>
+                <TextField fx:id="room" layoutX="77.0" layoutY="88.0"  promptText="Rom" />
+                <DatePicker fx:id="dateFrom" layoutX="77.0" layoutY="124.0" promptText="Dato" />
+                <HBox layoutX="80.0" layoutY="162.0" prefHeight="25.0" prefWidth="168.0" spacing="10.0" AnchorPane.leftAnchor="70.0" AnchorPane.rightAnchor="70.0">
+                    <children>
+                        <Label layoutX="22.0" layoutY="168.0" text="Fra" />
+                        <TextField fx:id="timeFrom" layoutX="60.0" layoutY="164.0" promptText="HH:MM" />
+                        <Label layoutX="164.0" layoutY="168.0" text="Til" />
+                        <TextField fx:id="timeTo" layoutX="194.0" layoutY="164.0" promptText="HH:MM" />
+                    </children>
+                </HBox>
+                <TextArea fx:id="subject" layoutX="51.0" layoutY="199.0" promptText="Formål" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" />
+                <TextField fx:id="repeating" layoutX="77.0" layoutY="285.0" promptText="Repetisjonsfrekvens" AnchorPane.leftAnchor="77.0" AnchorPane.rightAnchor="76.0" />
+                <DatePicker fx:id="dateEnd" layoutX="77.0" layoutY="322.0" prefHeight="25.0" prefWidth="236.0" promptText="Slutt-dato" />
+                <Button text="Send inn data" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
