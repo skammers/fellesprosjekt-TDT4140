@@ -34,6 +34,13 @@ public class Appointment {
 		}
 		
 	}
+
+    /**
+     * Constructor for making an empty appointment
+     */
+    public Appointment(){
+        this(null,null,null,null);
+    }
 	
 	
 	//Getter and setter for description
@@ -130,8 +137,8 @@ public class Appointment {
 	private boolean validateTime(ObjectProperty<LocalDateTime> startTime, ObjectProperty<LocalDateTime> endTime){
 		
 		
-		//startTime needs to be before endTime
-		if(startTime.getValue().isBefore(endTime.getValue())){
+		//startTime needs to be before endTime unless they both are null
+		if((startTime == null && endTime == null) || startTime.getValue().isBefore(endTime.getValue())){
 			return true;
 		}
 		

@@ -53,7 +53,7 @@ public class CalendarApplication extends Application {
             loader.setLocation(CalendarApplication.class.getResource("/no/ntnu/fellesprosjekt34/client/fxml/AppointmentView.fxml"));
 
 
-            //creates the stage for the popup
+            //creates the the popup window
             Stage stage = new Stage();
             stage.setTitle("Appointment");
             stage.initModality(Modality.WINDOW_MODAL);
@@ -64,11 +64,11 @@ public class CalendarApplication extends Application {
 
             //makes a reference to the application controller and sets the datafields.
             AppointmentViewController controller = loader.getController();
-            controller.setDialogStage(stage);
+            controller.setStage(stage);
             controller.setData(ap);
 
 
-            //wait for the user to finish in before it continues
+            //wait for the user to finish in the popup window before it continues
             stage.showAndWait();
             return controller.okClicked();
         } catch (IOException e) {

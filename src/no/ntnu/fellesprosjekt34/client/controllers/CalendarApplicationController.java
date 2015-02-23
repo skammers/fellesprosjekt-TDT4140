@@ -22,11 +22,13 @@ public class CalendarApplicationController {
     @FXML
     private void handleCreateAppointment(){
 
-        if(ca.showAppointmentView(new Appointment(null, null, null, null, null, null))){
+        if(ca.showAppointmentView(new Appointment())){
             //do something here if the change happend.
+            System.out.println("ok clicked");
 
         }
         else{
+            System.out.println("something went wrong");
 
         }
 
