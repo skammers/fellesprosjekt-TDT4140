@@ -13,35 +13,50 @@ CREATE TABLE Group(
     name VARCHAR(30),
     ownerId INT NOT NULL,
     parentId INT,
-    FOREIGN KEY (ownerId) REFERENCES User.id,
-    FOREIGN KEY (parentId) REFERENCES Group.id
+    FOREIGN KEY (ownerId) REFERENCES User (id),
+    FOREIGN KEY (parentId) REFERENCES Group (id)
 )
 
 CREATE TABLE GroupUser(
     userId INT NOT NULL,
     groupId INT NOT NULL,
-    FOREIGN KEY (userId) REFERENCES User.id,
-    FOREIGN KEY (groupId) REFERENCES Group.id,
+    FOREIGN KEY (userId) REFERENCES User (id),
+    FOREIGN KEY (groupId) REFERENCES Group (id),
     PRIMARY KEY (userId, groupId)
 )
 
 CREATE TABLE Building(
-    name VARCHAR(30) NOT NULL PRIMARY KEY
+    name VARCHAR(30) NOT NULL PRIMARY KEY,
+    location VARCHAR(50),
 )
 
 CREATE TABLE Room(
     roomName VARCHAR(30) NOT NULL,
     buildingName VARCHAR(30) NOT NULL,
     location VARCHAR(50),
-    FOREIGN KEY (buildingName) REFERENCES Building.name,
+    capacity INT,
+    FOREIGN KEY (buildingName) REFERENCES Building (name),
     PRIMARY KEY (roomName, buildingName)
 )
 
 CREATE TABLE Calendar(
-    calendarId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(30),
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
     ownerId INT NOT NULL,
     groupId INT,
-    FOREIGN KEY (ownerId) REFERENCES User.id,
-    FOREIGN KEY (groupId) REFERENCES Group.id
+    FOREIGN KEY (ownerId) REFERENCES User (id),
+    FOREIGN KEY (groupId) REFERENCES Group (id)
+)
+
+CREATE TABLE Appointment(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50),
+    calendarId INT NOT NULL,
+    roomName VARCHAR(30),
+    buildingName VARCHAR(30),
+    description VARCHAR(200),
+    startTime DATETIME NOT NULL,
+    endTime DATETIME NOT NULL,
+    FOREIGN KEY (roomName, buildingName) REFERENCES Room (roomName, buildingName),
+    FOREIGN KEY (calendarId) REFERENCES Calendar (id)
 )
