@@ -29,8 +29,13 @@ public class Login {
 	 * Sets the email for the object. 
 	 * @param email 
 	 */
-	public void setEmail(String email) {
-		this.email = email;
+	public boolean setEmail(String email) {
+		
+		if(validateEmail(email)){
+			this.email = email;
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -48,6 +53,22 @@ public class Login {
 	 */
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	
+	private boolean validateEmail(String email){
+		
+		String[] splitMail = email.split("@");
+		
+		System.out.println("Dette funker ikke");
+		
+		
+		return false;
+	}
+	
+	public static void Main(String[] args){
+		Login test = new Login("eirik@hamnvik.no", "123123");
+		test.setEmail("eirik@hamnvik.no");
 	}
 
 	
