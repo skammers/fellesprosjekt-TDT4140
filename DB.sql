@@ -60,3 +60,12 @@ CREATE TABLE Appointment(
     FOREIGN KEY (roomName, buildingName) REFERENCES Room (roomName, buildingName),
     FOREIGN KEY (calendarId) REFERENCES Calendar (id)
 )
+
+CREATE TABLE Invitation(
+    userId INT NOT NULL,
+    appointmentId INT NOT NULL,
+    rsvp INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES User (id),
+    FOREIGN KEY (appointmentId) REFERENCES Appointment (id),
+    PRIMARY KEY (userId, appointmentId)
+)
