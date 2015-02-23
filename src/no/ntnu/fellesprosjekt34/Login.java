@@ -1,18 +1,20 @@
 package no.ntnu.fellesprosjekt34;
 
+import javafx.beans.property.StringProperty;
+
 
 public class Login {	
 
 	//Variables
-	private String email;
-	private String password;
+	private StringProperty email;
+	private StringProperty password;
 	
 	/**
 	 * The Constructor takes two arguments, email and password of the user. 
 	 * @param email
 	 * @param password
 	 */
-	public Login(String email, String password) {
+	public Login(StringProperty email, StringProperty password) {
 		
 		//Må få inn try/catch
 		if(validateEmail(email)){
@@ -29,7 +31,7 @@ public class Login {
 	 * 
 	 * @return The email of the user. 
 	 */
-	public String getEmail() {
+	public StringProperty getEmail() {
 		return email;
 	}
 
@@ -37,7 +39,7 @@ public class Login {
 	 * Sets the email for the object. 
 	 * @param email 
 	 */
-	public boolean setEmail(String email) {
+	public boolean setEmail(StringProperty email) {
 		
 		if(validateEmail(email)){
 			this.email = email;
@@ -50,7 +52,7 @@ public class Login {
 	 * 
 	 * @return The users password.
 	 */
-	public String getPassword() {
+	public StringProperty getPassword() {
 		return password;
 	}
 
@@ -59,7 +61,7 @@ public class Login {
 	 * Sets the password for the object. 
 	 * @param password
 	 */
-	public boolean setPassword(String password) {
+	public boolean setPassword(StringProperty password) {
 		
 		if(validatePassword(password)){
 			this.password = password;
@@ -74,10 +76,10 @@ public class Login {
 	 * @param email
 	 * @return boolean, true if done correctly, false otherwise. 
 	 */
-	private boolean validateEmail(String email){
+	private boolean validateEmail(StringProperty email){
 		
 		//Splits at '@'
-		String[] splitMail = email.split("@");
+		String[] splitMail = email.getValue().split("@");
 		
 		//Can only be one '@'.
 		if(splitMail.length != 2){
@@ -101,10 +103,10 @@ public class Login {
 	 * @param password
 	 * @return
 	 */
-	private boolean validatePassword(String password){
+	private boolean validatePassword(StringProperty password){
 		
 		//Needs to be at least 8 characters long. 
-		if(password.length() < 8){
+		if(password.getValue().length() < 8){
 			System.out.println("Password must be at least 8 characters");
 			return false;
 		}
@@ -112,7 +114,7 @@ public class Login {
 		//Needs to be at least one upper case letter and one digit
 		boolean upper = false;
 		boolean digit = false;
-		for (char c : password.toCharArray()) {
+		for (char c : password.getValue().toCharArray()) {
 			if(Character.isUpperCase(c)){
 				upper = true;
 			}
@@ -130,10 +132,11 @@ public class Login {
 		return true;
 	}
 	
+	/*
 	public static void main(String[] args){
 		Login test = new Login("eirik-@hamnvik.no", "123123");
 	}
-
+	*/
 	
 	
 	
