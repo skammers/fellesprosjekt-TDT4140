@@ -12,14 +12,17 @@ CREATE TABLE Group(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(30),
     ownerId INT NOT NULL,
-    FOREIGN KEY (ownerId) REFERENCES User.id
+    parentId INT,
+    FOREIGN KEY (ownerId) REFERENCES User.id,
+    FOREIGN KEY (parentId) REFERENCES Group.id
 )
 
 CREATE TABLE GroupUser(
     userId INT NOT NULL,
     groupId INT NOT NULL,
     FOREIGN KEY (userId) REFERENCES User.id,
-    FOREIGN KEY (groupId) REFERENCES Group.id
+    FOREIGN KEY (groupId) REFERENCES Group.id,
+    PRIMARY KEY (userId, groupId)
 )
 
 CREATE TABLE Building(
@@ -32,4 +35,13 @@ CREATE TABLE Room(
     location VARCHAR(50),
     FOREIGN KEY (buildingName) REFERENCES Building.name,
     PRIMARY KEY (roomName, buildingName)
+)
+
+CREATE TABLE Calendar(
+    calendarId INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(30),
+    ownerId INT NOT NULL,
+    groupId INT,
+    FOREIGN KEY (ownerId) REFERENCES User.id,
+    FOREIGN KEY (groupId) REFERENCES Group.id
 )
