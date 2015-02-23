@@ -2,14 +2,17 @@ package no.ntnu.fellesprosjekt34;
 
 import java.time.LocalDateTime;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.StringProperty;
+
 
 public class Appointment {
 
 	//Variables
-	private String description;
-	private String shortName;
-	private LocalDateTime startTime;
-	private LocalDateTime endTime;
+	private StringProperty description;
+	private StringProperty shortName;
+	private ObjectProperty<LocalDateTime> startTime;
+	private ObjectProperty<LocalDateTime> endTime;
 	
 	
 	/**
@@ -20,7 +23,7 @@ public class Appointment {
 	 * @param startTime
 	 * @param endTime
 	 */
-	public Appointment(String description, String shortName, LocalDateTime startTime, LocalDateTime endTime){
+	public Appointment(StringProperty description, StringProperty shortName, ObjectProperty<LocalDateTime> startTime, ObjectProperty<LocalDateTime> endTime){
 		
 		this.description = description;
 		this.shortName = shortName;
@@ -39,7 +42,7 @@ public class Appointment {
 	 * 
 	 * @return description of the appointment
 	 */
-	public String getDescription(){
+	public StringProperty getDescription(){
 		return description;
 	}
 	
@@ -47,7 +50,7 @@ public class Appointment {
 	 * Sets the description for the appointment. 
 	 * @param description
 	 */
-	public void setDescription(String description){
+	public void setDescription(StringProperty description){
 		this.description = description;
 	}
 	
@@ -55,7 +58,7 @@ public class Appointment {
 	 * 
 	 * @return The shortName for the appointment
 	 */
-	public String getShortName() {
+	public StringProperty getShortName() {
 		return shortName;
 	}
 
@@ -64,7 +67,7 @@ public class Appointment {
 	 * Sets the shortName for the appointment.
 	 * @param shortName
 	 */
-	public void setShortName(String shortName) {
+	public void setShortName(StringProperty shortName) {
 		this.shortName = shortName;
 	}
 
@@ -73,7 +76,7 @@ public class Appointment {
 	 * 
 	 * @return The startTime of the appointment. 
 	 */
-	public LocalDateTime getStartTime() {
+	public ObjectProperty<LocalDateTime> getStartTime() {
 		return startTime;
 	}
 
@@ -83,7 +86,7 @@ public class Appointment {
 	 * @param startTime
 	 * @return boolean, true if done correctly, false otherwise.
 	 */
-	public boolean setStartTime(LocalDateTime startTime) {
+	public boolean setStartTime(ObjectProperty<LocalDateTime> startTime) {
 		
 		if(validateTime(startTime, this.endTime)){
 			this.startTime = startTime;
@@ -98,7 +101,7 @@ public class Appointment {
 	 * 
 	 * @return The endTime of the appointment. 
 	 */
-	public LocalDateTime getEndTime() {
+	public ObjectProperty<LocalDateTime> getEndTime() {
 		return endTime;
 	}
 
@@ -108,7 +111,7 @@ public class Appointment {
 	 * @param endTime
 	 * @return boolean, true if it is done correctly, false otherwise. 
 	 */
-	public boolean setEndTime(LocalDateTime endTime) {
+	public boolean setEndTime(ObjectProperty<LocalDateTime> endTime) {
 		
 		if(validateTime(this.startTime, endTime)){
 			this.endTime = endTime;
@@ -124,9 +127,11 @@ public class Appointment {
 	 * @param endTime
 	 * @return boolean, true if done correctly, false otherwise. 
 	 */
-	private boolean validateTime(LocalDateTime startTime, LocalDateTime endTime){
+	private boolean validateTime(ObjectProperty<LocalDateTime> startTime, ObjectProperty<LocalDateTime> endTime){
 		
-		if(startTime.isBefore(endTime)){
+		
+		//startTime needs to be before endTime
+		if(startTime.getValue().isBefore(endTime.getValue())){
 			return true;
 		}
 		
