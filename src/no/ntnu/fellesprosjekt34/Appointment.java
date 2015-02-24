@@ -16,7 +16,7 @@ public class Appointment {
 	
 	
 	/**
-	 * The Constructor takes four arguements, description, shortName, startTime and endTime of the 
+	 * The Constructor takes four arguments, description, shortName, startTime and endTime of the 
 	 * appointment.
 	 * @param description
 	 * @param shortName

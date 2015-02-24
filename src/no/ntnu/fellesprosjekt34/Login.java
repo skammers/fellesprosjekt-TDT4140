@@ -93,7 +93,7 @@ public class Login {
 		}
 		
 		//Before the '@', it is only allowed with letters, numbers and '.', '_' and '-'.
-		if(!splitMail[0].matches("[A-Za-z0-9\\.\\_\\-]+")){
+		if(!splitMail[0].matches("[A-Za-zæøåÆØÅ0-9\\.\\_\\-]+")){
 			System.out.println("Some characters are not allowed.");
 			return false;
 		}
