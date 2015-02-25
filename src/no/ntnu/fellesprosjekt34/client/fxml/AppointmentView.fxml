@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="429.0" prefWidth="327.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.fellesprosjekt34.client.controllers.AppointmentViewController">
+<AnchorPane prefHeight="500.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.ntnu.fellesprosjekt34.client.controllers.AppointmentViewController">
     <children>
-        <VBox layoutX="50.0" layoutY="14.0" spacing="15.0">
-            <children>
-                <Label layoutX="59.0" layoutY="14.0" text="Appointment">
-                    <font>
-                        <Font size="36.0" />
-                    </font>
-                </Label>
-
-                <Button onAction="#handleOk" text="OK" />
-                <Button onAction="#handleCancel" text="Cancel" />
-            </children>
-        </VBox>
+      <TextArea layoutX="68.0" layoutY="218.0" prefHeight="90.0" prefWidth="286.0" promptText="Deltakerliste her.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="258.0" />
+      <Label layoutX="230.0" layoutY="411.0" text="Rom" AnchorPane.rightAnchor="142.0" AnchorPane.topAnchor="420.0" />
+      <TextField layoutX="94.0" layoutY="411.0" prefHeight="26.0" prefWidth="117.0" promptText="Bygg her.." AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="415.0" />
+      <TextField layoutX="263.0" layoutY="411.0" prefHeight="26.0" prefWidth="117.0" promptText="Rom her.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="415.0" />
+      <ComboBox layoutX="68.0" layoutY="70.0" prefHeight="26.0" prefWidth="286.0" promptText="Velg kalender.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
+      <Label layoutX="215.0" layoutY="111.0" text="Til dato" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="111.0" />
+      <DatePicker layoutX="68.0" layoutY="96.0" prefHeight="26.0" prefWidth="117.0" promptText="25/02/2015" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="106.0" />
+      <DatePicker layoutX="222.0" layoutY="96.0" prefHeight="26.0" prefWidth="117.0" promptText="26/02.2015" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="106.0" />
+      <TextArea layoutX="68.0" layoutY="148.0" prefHeight="70.0" prefWidth="286.0" promptText="Liten beskrivelse her.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="178.0" />
+      <Label layoutX="178.0" layoutY="147.0" text="Til tid" AnchorPane.rightAnchor="142.0" AnchorPane.topAnchor="147.0" />
+      <ComboBox layoutX="68.0" layoutY="122.0" prefHeight="26.0" prefWidth="117.0" promptText="Velg tid.." AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="142.0" />
+      <ComboBox layoutX="211.0" layoutY="122.0" prefHeight="26.0" prefWidth="117.0" promptText="Velg tid.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="142.0" />
+      <Label layoutX="38.0" layoutY="75.0" text="Kalender" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="75.0">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="39.0" layoutY="111.0" prefHeight="13.0" prefWidth="50.0" text="Fra dato" AnchorPane.rightAnchor="311.0" AnchorPane.topAnchor="111.0" />
+      <Label layoutX="12.0" layoutY="147.0" text="Fra tid" AnchorPane.rightAnchor="312.0" />
+      <Label layoutX="-3.0" layoutY="178.0" text="Beskrivelse" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="178.0" />
+      <Label layoutX="39.0" layoutY="411.0" text="Bygning" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="420.0" />
+      <TextField layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="370.0" promptText="Tittel.." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextField>
+      <Label layoutX="3.0" layoutY="278.0" text="Deltakere" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="258.0" />
+      <Button layoutX="258.0" layoutY="436.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Lagre" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="451.0" />
+      <Button layoutX="322.0" layoutY="436.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="60.0" text="Avbryt" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="451.0" />
+      <TextField layoutX="94.0" layoutY="353.0" prefHeight="26.0" prefWidth="211.0" promptText="Søk etter personer.." AnchorPane.topAnchor="353.0" />
+      <Button layoutX="314.0" layoutY="353.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="68.0" text="Legg til" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="353.0" />
+      <Label layoutX="94.0" layoutY="388.0" text="Forslag til rom" AnchorPane.topAnchor="389.0" />
     </children>
 </AnchorPane>
