@@ -2,13 +2,6 @@ package no.ntnu.fellesprosjekt34;
 
 public class User {
 
-    public User(String firstName, String lastName, String email, int phoneNumber, String position) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.position = position;
-    }
 
     private String firstName;
     private String lastName;

@@ -1,5 +1,6 @@
 package no.ntnu.fellesprosjekt34;
 
+import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
@@ -12,22 +13,27 @@ import java.util.Observable;
 
 public class Group {
 
-    private String name;
+    private StringProperty name;
     private ObservableList<User> users;
     //private Calendar groupCalendar;
 
-    public String getName(String name){
+
+    public String getName() {
+        return name.get();
+    }
+
+    public StringProperty nameProperty() {
         return name;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         if(name.length() >0){
-            this.name = name;
+            this.name.set(name);
         }
-        else{
+        else {
             System.out.println("Feil! Skriv inn et navn");
         }
     }
-
 
     public boolean addUser(User user){
         return users.add(user);
@@ -36,9 +42,6 @@ public class Group {
     public boolean removeUser(User user){
         return users.remove(user);
     }
-
-
-
 
 
 
