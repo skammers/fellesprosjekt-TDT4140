@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 
@@ -30,10 +31,10 @@ public class Appointment {
 	 */
 	public Appointment(ObservableList<User> participants,String roomName, String buildingName, String description, String title, ObjectProperty<LocalDateTime> startTime, ObjectProperty<LocalDateTime> endTime){
 		
-		this.description.setValue(description);
-		this.title.setValue(title);
-        this.buildingName.setValue(buildingName);
-        this.roomName.set(roomName);
+		this.description = new SimpleStringProperty(description);
+		this.title = new SimpleStringProperty(title);
+        this.buildingName = new SimpleStringProperty(buildingName);
+        this.roomName = new SimpleStringProperty(roomName);
         this.participants = participants;
 		
 		if(validateTime(startTime, endTime)){

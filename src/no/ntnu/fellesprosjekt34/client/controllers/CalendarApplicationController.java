@@ -1,5 +1,6 @@
 package no.ntnu.fellesprosjekt34.client.controllers;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import no.ntnu.fellesprosjekt34.Appointment;
@@ -30,8 +31,8 @@ public class CalendarApplicationController {
      */
     @FXML
     private void handleCreateAppointment(){
-
-        if(ca.showAppointmentView(new Appointment(,"lol","rofl",""))){
+        ObservableList<User> p = FXCollections.observableArrayList();
+        if(ca.showAppointmentView(new Appointment(p,"lol","rofl","33","jdkjkl",null,null))){
             //do something here if the change happend.
             System.out.println("ok clicked");
 

@@ -22,7 +22,7 @@ public class AppointmentViewController {
     @FXML
     private TextArea descriptionField, participantsField;
     // should be of type invitaion when we get that far
-    private ObservableList<User> participants = FXCollections.observableArrayList();
+
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -34,7 +34,9 @@ public class AppointmentViewController {
         this.titleField.setText(ap.getDescription());
         this.buildingField.setText(ap.getBuildingName());
         this.descriptionField.setText(ap.getDescription());
-        this.participants = ap.getParticipants();
+        String str = "";
+
+
 
 
     }
@@ -52,6 +54,10 @@ public class AppointmentViewController {
         //sets okclicked to true and closes the window
         okClicked = true;
         stage.close();
+    }
+
+    private void addParticipants(ObservableList<User> user){
+        //sets up the participants list.
     }
     private boolean validData(){
         String errorMessage = "";
