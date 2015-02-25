@@ -1,8 +1,13 @@
 package no.ntnu.fellesprosjekt34.client.controllers;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import no.ntnu.fellesprosjekt34.Appointment;
+import no.ntnu.fellesprosjekt34.User;
 import no.ntnu.fellesprosjekt34.client.CalendarApplication;
+import org.controlsfx.dialog.Dialogs;
+import javafx.scene.control.Button;
 
 /**
  * Created by Eirik on 23.02.2015.
@@ -11,6 +16,11 @@ public class CalendarApplicationController {
 
     //a reference to main.
     private CalendarApplication ca;
+    private Button button;
+
+
+
+
 
     public void setCalendarApplication(CalendarApplication ca){
         this.ca = ca;
@@ -21,17 +31,22 @@ public class CalendarApplicationController {
      */
     @FXML
     private void handleCreateAppointment(){
-
-        if(ca.showAppointmentView(new Appointment())){
+        ObservableList<User> p = FXCollections.observableArrayList();
+        if(ca.showAppointmentView(new Appointment(p,"lol","rofl","33","jdkjkl",null,null))){
             //do something here if the change happend.
             System.out.println("ok clicked");
 
         }
         else{
             System.out.println("something went wrong");
-
+            Dialogs.create()
+                    .title("FEIL!!")
+                    .masthead("DETTA VA FEIL!!")
+                    .message("IDIOT!!!")
+                    .showError();
         }
 
     }
+
 
 }
