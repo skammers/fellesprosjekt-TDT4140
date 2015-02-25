@@ -1,7 +1,9 @@
 package no.ntnu.fellesprosjekt34.client.controllers;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import no.ntnu.fellesprosjekt34.Appointment;
+import no.ntnu.fellesprosjekt34.User;
 import no.ntnu.fellesprosjekt34.client.CalendarApplication;
 import org.controlsfx.dialog.Dialogs;
 import javafx.scene.control.Button;
@@ -17,6 +19,8 @@ public class CalendarApplicationController {
 
 
 
+
+
     public void setCalendarApplication(CalendarApplication ca){
         this.ca = ca;
     }
@@ -27,7 +31,7 @@ public class CalendarApplicationController {
     @FXML
     private void handleCreateAppointment(){
 
-        if(ca.showAppointmentView(new Appointment())){
+        if(ca.showAppointmentView(new Appointment(,"lol","rofl",""))){
             //do something here if the change happend.
             System.out.println("ok clicked");
 
@@ -42,5 +46,6 @@ public class CalendarApplicationController {
         }
 
     }
+
 
 }

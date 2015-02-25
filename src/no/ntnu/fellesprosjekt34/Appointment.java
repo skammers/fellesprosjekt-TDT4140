@@ -1,37 +1,48 @@
 package no.ntnu.fellesprosjekt34;
 
 import java.time.LocalDateTime;
+import java.util.Observable;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 
 public class Appointment {
 
 	//Variables
 	private StringProperty description;
-	private StringProperty shortName;
+	private StringProperty title;
+    private StringProperty roomName;
+    private StringProperty buildingName;
 	private ObjectProperty<LocalDateTime> startTime;
 	private ObjectProperty<LocalDateTime> endTime;
+    private ObservableList<User> participants;
 	
 	
 	/**
 	 * The Constructor takes four arguments, description, shortName, startTime and endTime of the 
 	 * appointment.
 	 * @param description
-	 * @param shortName
+	 * @param title
 	 * @param startTime
 	 * @param endTime
 	 */
-	public Appointment(StringProperty description, StringProperty shortName, ObjectProperty<LocalDateTime> startTime, ObjectProperty<LocalDateTime> endTime){
+	public Appointment(ObservableList<User> participants,String roomName, String buildingName, String description, String title, ObjectProperty<LocalDateTime> startTime, ObjectProperty<LocalDateTime> endTime){
 		
-		this.description = description;
-		this.shortName = shortName;
+		this.description.setValue(description);
+		this.title.setValue(title);
+        this.buildingName.setValue(buildingName);
+        this.roomName.set(roomName);
+        this.participants = participants;
 		
 		if(validateTime(startTime, endTime)){
 			this.startTime = startTime;
 			this.endTime = endTime;
 		}
+
+        //test data
+        participants.add(new User("Eirik", "Mikailsen", "rofl@copter.lol", 1333333337,"I'm the baws"));
 		
 	}
 
@@ -39,7 +50,7 @@ public class Appointment {
      * Constructor for making an empty appointment
      */
     public Appointment(){
-        this(null,null,null,null);
+        this(null,null,null,null,null,null,null);
     }
 	
 	
@@ -49,36 +60,38 @@ public class Appointment {
 	 * 
 	 * @return description of the appointment
 	 */
-	public StringProperty getDescription(){
-		return description;
+	public String getDescription(){
+		return description.getValue();
 	}
 	
 	/**
 	 * Sets the description for the appointment. 
 	 * @param description
 	 */
-	public void setDescription(StringProperty description){
-		this.description = description;
+	public void setDescription(String description){
+		this.description.setValue(description);
 	}
 	
 	/**
 	 * 
 	 * @return The shortName for the appointment
 	 */
-	public StringProperty getShortName() {
-		return shortName;
+	public String getTitle() {
+		return title.getValue();
 	}
 
 
 	/**
 	 * Sets the shortName for the appointment.
-	 * @param shortName
+	 * @param title
 	 */
-	public void setShortName(StringProperty shortName) {
-		this.shortName = shortName;
-	}
+	public void setTitle(String title) {this.title.set(title);}
 
 
+    public String getRoomName(){return this.roomName.getValue();}
+    public void setRoomName(String roomName){this.roomName.setValue(roomName);}
+    public String getBuildingName(){return this.buildingName.getValue();}
+    public void setBuildingName(String buildingName){this.buildingName.set(buildingName);}
 	/**
 	 * 
 	 * @return The startTime of the appointment. 
@@ -103,6 +116,9 @@ public class Appointment {
 		
 	}
 
+    public ObservableList<User> getParticipants(){
+        return this.participants;
+    }
 
 	/**
 	 * 
