@@ -31,6 +31,7 @@ public class CalendarApplication extends Application {
         loader.setLocation(CalendarApplication.class.getResource("/no/ntnu/fellesprosjekt34/client/fxml/CalendarApplication.fxml"));
         primaryStage.setTitle("Calendar");
         primaryStage.setScene(new Scene((AnchorPane) loader.load(), 800, 600));
+       
         primaryStage.show();
 
 
@@ -61,6 +62,7 @@ public class CalendarApplication extends Application {
             AnchorPane page = (AnchorPane) loader.load();
             Scene scene = new Scene(page);
             stage.setScene(scene);
+            stage.setResizable(false);
 
             //makes a reference to the application controller and sets the datafields.
             AppointmentViewController controller = loader.getController();
