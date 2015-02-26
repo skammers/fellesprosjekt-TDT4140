@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,7 +31,7 @@ public class CalendarApplication extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(CalendarApplication.class.getResource("/no/ntnu/fellesprosjekt34/client/fxml/CalendarApplication.fxml"));
         primaryStage.setTitle("Calendar");
-        primaryStage.setScene(new Scene((AnchorPane) loader.load(), 800, 600));
+        primaryStage.setScene(new Scene((BorderPane) loader.load(), 800, 600));
        
         primaryStage.show();
 
