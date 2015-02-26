@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.Observable;
 
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
@@ -29,7 +30,7 @@ public class Appointment {
 	 * @param startTime
 	 * @param endTime
 	 */
-	public Appointment(ObservableList<User> participants,String roomName, String buildingName, String description, String title, ObjectProperty<LocalDateTime> startTime, ObjectProperty<LocalDateTime> endTime){
+	public Appointment(ObservableList<User> participants,String roomName, String buildingName, String description, String title, LocalDateTime startTime, LocalDateTime endTime){
 		
 		this.description = new SimpleStringProperty(description);
 		this.title = new SimpleStringProperty(title);
@@ -38,8 +39,8 @@ public class Appointment {
         this.participants = participants;
 		
 		if(validateTime(startTime, endTime)){
-			this.startTime = startTime;
-			this.endTime = endTime;
+			this.startTime = new SimpleObjectProperty<LocalDateTime>(startTime) ;
+			this.endTime = new SimpleObjectProperty<LocalDateTime>(endTime);
 		}
 
 
@@ -106,10 +107,10 @@ public class Appointment {
 	 * @param startTime
 	 * @return boolean, true if done correctly, false otherwise.
 	 */
-	public boolean setStartTime(ObjectProperty<LocalDateTime> startTime) {
+	public boolean setStartTime(LocalDateTime startTime) {
 		
-		if(validateTime(startTime, this.endTime)){
-			this.startTime = startTime;
+		if(validateTime(startTime, this.endTime.getValue())){
+			this.startTime.setValue(startTime);
 			return true;
 		}
 		return false;
@@ -134,10 +135,10 @@ public class Appointment {
 	 * @param endTime
 	 * @return boolean, true if it is done correctly, false otherwise. 
 	 */
-	public boolean setEndTime(ObjectProperty<LocalDateTime> endTime) {
+	public boolean setEndTime(LocalDateTime endTime) {
 		
-		if(validateTime(this.startTime, endTime)){
-			this.endTime = endTime;
+		if(validateTime(this.startTime.getValue(), endTime)){
+			this.endTime.setValue(endTime);
 			return true;
 		}
 		return false;
@@ -150,11 +151,11 @@ public class Appointment {
 	 * @param endTime
 	 * @return boolean, true if done correctly, false otherwise. 
 	 */
-	private boolean validateTime(ObjectProperty<LocalDateTime> startTime, ObjectProperty<LocalDateTime> endTime){
+	private boolean validateTime(LocalDateTime startTime, LocalDateTime endTime){
 		
 		
 		//startTime needs to be before endTime unless they both are null
-		if((startTime == null && endTime == null) || startTime.getValue().isBefore(endTime.getValue())){
+		if((startTime == null && endTime == null) || startTime.isBefore(endTime)){
 			return true;
 		}
 		

@@ -23,16 +23,16 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <DatePicker layoutX="68.0" layoutY="96.0" prefHeight="26.0" prefWidth="117.0" promptText="25/02/2015" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="106.0" />
-      <DatePicker layoutX="222.0" layoutY="96.0" prefHeight="26.0" prefWidth="117.0" promptText="26/02.2015" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="106.0" />
+      <DatePicker fx:id="startDate" layoutX="68.0" layoutY="96.0" prefHeight="26.0" prefWidth="117.0" promptText="25/02/2015" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="106.0" />
+      <DatePicker fx:id="endDate" layoutX="222.0" layoutY="96.0" prefHeight="26.0" prefWidth="117.0" promptText="26/02.2015" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="106.0" />
       <TextArea fx:id="descriptionArea" layoutX="68.0" layoutY="148.0" prefHeight="70.0" prefWidth="286.0" promptText="Liten beskrivelse her.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="178.0" />
       <Label layoutX="178.0" layoutY="147.0" text="Til tid" AnchorPane.rightAnchor="142.0" AnchorPane.topAnchor="147.0">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <ComboBox layoutX="68.0" layoutY="122.0" prefHeight="26.0" prefWidth="117.0" promptText="Velg tid.." AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="142.0" />
-      <ComboBox layoutX="211.0" layoutY="122.0" prefHeight="26.0" prefWidth="117.0" promptText="Velg tid.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="142.0" />
+      <ComboBox fx:id="startTime" layoutX="68.0" layoutY="122.0" prefHeight="26.0" prefWidth="117.0" promptText="Velg tid.." AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="142.0" />
+      <ComboBox fx:id="endTime" layoutX="211.0" layoutY="122.0" prefHeight="26.0" prefWidth="117.0" promptText="Velg tid.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="142.0" />
       <Label layoutX="38.0" layoutY="75.0" text="Kalender" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="75.0">
          <font>
             <Font name="System Bold" size="12.0" />
