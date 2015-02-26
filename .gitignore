@@ -14,6 +14,8 @@ hs_err_pid*
 *.pydevproject
 .metadata
 .gradle
+.classpath
+.prosject
 bin/
 lib/
 tmp/
