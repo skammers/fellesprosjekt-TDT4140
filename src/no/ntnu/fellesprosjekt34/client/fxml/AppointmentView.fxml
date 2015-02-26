@@ -15,8 +15,8 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="94.0" layoutY="411.0" prefHeight="26.0" prefWidth="117.0" promptText="Bygg her.." AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="415.0" />
-      <TextField layoutX="263.0" layoutY="411.0" prefHeight="26.0" prefWidth="117.0" promptText="Rom her.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="415.0" />
+      <TextField fx:id="buildingField" layoutX="94.0" layoutY="411.0" prefHeight="26.0" prefWidth="117.0" promptText="Bygg her.." AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="415.0" />
+      <TextField fx:id="roomField" layoutX="263.0" layoutY="411.0" prefHeight="26.0" prefWidth="117.0" promptText="Rom her.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="415.0" />
       <ComboBox layoutX="68.0" layoutY="70.0" prefHeight="26.0" prefWidth="286.0" promptText="Velg kalender.." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
       <Label layoutX="215.0" layoutY="111.0" text="Til dato" AnchorPane.rightAnchor="141.0" AnchorPane.topAnchor="111.0">
          <font>
@@ -57,7 +57,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="370.0" promptText="Tittel.." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+      <TextField fx:id="titleField" layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="370.0" promptText="Tittel.." AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -69,7 +69,7 @@
       </Label>
       <Button layoutX="258.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="30.0" prefWidth="60.0" text="Lagre" AnchorPane.rightAnchor="82.0" AnchorPane.topAnchor="451.0" />
       <Button layoutX="322.0" layoutY="436.0" mnemonicParsing="false" onAction="#handleCancel" prefHeight="30.0" prefWidth="60.0" text="Avbryt" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="451.0" />
-      <TextField layoutX="94.0" layoutY="353.0" prefHeight="26.0" prefWidth="211.0" promptText="Søk etter personer.." AnchorPane.topAnchor="353.0" />
+      <TextField fx:id="searchField" layoutX="94.0" layoutY="353.0" prefHeight="26.0" prefWidth="211.0" promptText="Søk etter personer.." AnchorPane.topAnchor="353.0" />
       <Button layoutX="314.0" layoutY="353.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="68.0" text="Legg til" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="353.0" />
       <Label layoutX="94.0" layoutY="388.0" text="Forslag til rom" AnchorPane.topAnchor="389.0">
          <font>

@@ -8,20 +8,23 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import no.ntnu.fellesprosjekt34.Appointment;
 import no.ntnu.fellesprosjekt34.User;
+import org.controlsfx.dialog.Dialogs;
 
 
 /**
  * Created by Eirik on 23.02.2015.
  */
 public class AppointmentViewController {
-
+    String errorMessage = "";
     private Stage stage;
     private boolean okClicked;
     @FXML
     private TextField roomField,titleField,searchField,buildingField;
     @FXML
-    private TextArea descriptionField, participantsField;
-    // should be of type invitaion when we get that far
+    private TextArea descriptionArea;
+
+
+
 
 
     public void setStage(Stage stage) {
@@ -33,8 +36,7 @@ public class AppointmentViewController {
         this.roomField.setText(ap.getRoomName());
         this.titleField.setText(ap.getDescription());
         this.buildingField.setText(ap.getBuildingName());
-        this.descriptionField.setText(ap.getDescription());
-        String str = "";
+        this.descriptionArea.setText(ap.getDescription());
 
 
 
@@ -47,20 +49,29 @@ public class AppointmentViewController {
         //code goes here
         if(validData()){
 
-
+            //sets okclicked to true and closes the window
+            okClicked = true;
+            stage.close();
+        }
+        else{
+            Dialogs.create()
+                    .title("Følgende ")
+                    .message(errorMessage)
+                    .showError();
         }
 
 
-        //sets okclicked to true and closes the window
-        okClicked = true;
-        stage.close();
+
+
     }
 
     private void addParticipants(ObservableList<User> user){
         //sets up the participants list.
     }
+
+
     private boolean validData(){
-        String errorMessage = "";
+        errorMessage = "";
 
 
         return true;
