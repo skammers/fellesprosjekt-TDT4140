@@ -41,9 +41,6 @@ public class Appointment {
 			this.startTime = startTime;
 			this.endTime = endTime;
 		}
-
-
-		
 	}
 
     /**

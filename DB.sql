@@ -5,7 +5,8 @@ CREATE TABLE User(
     lastName VARCHAR(30) NOT NULL,
     position VARCHAR(30),
     phoneNumber VARCHAR(20),
-    hashedPassword CHAR(64) NOT NULL
+    hashedPassword CHAR(64) NOT NULL,
+    INDEX (email)
 );
 CREATE TABLE UserGroup(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -58,6 +59,7 @@ CREATE TABLE Invitation(
     userId INT NOT NULL,
     appointmentId INT NOT NULL,
     rsvp INT NOT NULL,
+    notificationTime DATETIME,
     FOREIGN KEY (userId) REFERENCES User (id),
     FOREIGN KEY (appointmentId) REFERENCES Appointment (id),
     PRIMARY KEY (userId, appointmentId)
