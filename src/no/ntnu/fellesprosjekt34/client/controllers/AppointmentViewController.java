@@ -78,17 +78,13 @@ public class AppointmentViewController {
 
     }
     private LocalDateTime toLocalDateTime(LocalDate ld, String time){
-        LocalDateTime ldt;
-        try {
+
+
             String[] split = time.split(":");
-            ldt = LocalDateTime.of(ld, LocalTime.of(Integer.parseInt(split[0]),Integer.parseInt(split[1])));
+            LocalDateTime ldt = LocalDateTime.of(ld, LocalTime.of(Integer.parseInt(split[0]),Integer.parseInt(split[1])));
 
-        }catch(Exception e){
-            System.out.println("not an int");
-        }
+            return ldt;
 
-
-        return ldt;
     }
 
     //runs when the user presses ok. sets the final values to the appointment object that is being created
