@@ -43,7 +43,7 @@ public class Appointment {
 		}
 
         //test data
-        participants.add(new User("Eirik", "Mikailsen", "rofl@copter.lol", 1333333337,"I'm the baws"));
+        //participants.add(new User("Eirik", "Mikailsen", "rofl@copter.lol", 1333333337,"I'm the baws"));
 		
 	}
 
