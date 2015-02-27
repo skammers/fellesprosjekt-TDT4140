@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <AnchorPane prefHeight="268.0" prefWidth="800.0" BorderPane.alignment="CENTER" />
@@ -25,17 +24,17 @@
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label text="Brukernavn:" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="100.0" text="E-post:" />
                   <TextField />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                <children>
-                  <Label text="     Passord:" />
+                  <Label alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="100.0" text="     Passord:" />
                   <TextField alignment="CENTER" />
                </children>
             </HBox>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Logg inn">
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="70.0" text="Logg inn">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
