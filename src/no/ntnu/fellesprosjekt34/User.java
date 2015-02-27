@@ -9,6 +9,7 @@ import java.sql.SQLException;
 public class User {
 
     private static final String QUERY = "SELECT * FROM User WHERE email = \"%s\" LIMIT 1";
+    private static final String QUERY_ID = "SELECT * FROM User WHERE id = %s LIMIT 1";
 
     private String firstName;
     private String lastName;
@@ -27,6 +28,15 @@ public class User {
 
     public static User getFromDB(Database db, String email) throws SQLException, NotFoundInDBException{
         ResultSet r = db.Q(String.format(QUERY, email));
+        if(r.next()){
+            return new User(r.getString("firstName"), r.getString("lastName"), r.getString("email"), r.getString("phoneNumber"), r.getString("position"));
+        } else {
+            throw new NotFoundInDBException();
+        }
+    }
+
+    public static User getFromDB(Database db, int id) throws SQLException, NotFoundInDBException{
+        ResultSet r = db.Q(String.format(QUERY_ID, id));
         if(r.next()){
             return new User(r.getString("firstName"), r.getString("lastName"), r.getString("email"), r.getString("phoneNumber"), r.getString("position"));
         } else {
