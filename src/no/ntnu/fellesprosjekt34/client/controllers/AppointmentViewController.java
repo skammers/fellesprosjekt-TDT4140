@@ -63,6 +63,12 @@ public class AppointmentViewController {
 
 
     }
+
+    /**
+     * Converts from localdatetime to localdate even if the localdatetime obejct is null.
+     * @param start
+     * @param end
+     */
     private void setLocalDates(LocalDateTime start,LocalDateTime end){
         if(start == null){this.startDate.setValue(null);}
         else{this.startDate.setValue(start.toLocalDate());}
@@ -77,6 +83,13 @@ public class AppointmentViewController {
         else{this.endTime.setValue(end.toLocalTime());}
 
     }
+
+    /**
+     * converts back to LocalDateTime before saving
+     * @param ld
+     * @param time
+     * @return
+     */
     private LocalDateTime toLocalDateTime(LocalDate ld, String time){
 
 
@@ -88,6 +101,10 @@ public class AppointmentViewController {
     }
 
     //runs when the user presses ok. sets the final values to the appointment object that is being created
+
+    /**
+     * set all the appointment fields to their correct value after validating them.
+     */
     @FXML
     private void handleOk(){
         //code goes here
@@ -105,7 +122,7 @@ public class AppointmentViewController {
         }
         else{
             Dialogs.create()
-                    .title("")
+                    .title("Ugyldige felt").masthead("Følgende ting på fikses")
                     .message(errorMessage)
                     .showError();
         }
@@ -120,14 +137,39 @@ public class AppointmentViewController {
         //sets up the participants list.
     }
 
-
+    /**
+     * Validates all the data before saving
+     * @return
+     */
     private boolean validData(){
         errorMessage = "";
-
+        if(this.startTime.getValue() == null){
+            errorMessage += "Ikke satt start tid \n";
+        }
+        if(this.endTime.getValue() == null){
+            errorMessage += "Ikke satt slutt tid \n";
+        }
+        if(this.buildingField.getText() == null){
+            errorMessage += "Ikke satt byggning \n";
+        }
+        if(this.roomField.getText() == null){
+            errorMessage += "Ikke satt rom \n";
+        }
+        if(this.startDate.getValue() == null){
+            errorMessage += "Ikke satt start dato\n";
+        }
+        if(this.endDate.getValue() == null){
+            errorMessage += "ikke satt slutt dato\n";
+        }
+        if(errorMessage.length() > 0){
+            return false;
+        }
 
 
         return true;
     }
+
+
     /*
        private boolean validateTime(ObjectProperty<LocalDateTime> startTime, ObjectProperty<LocalDateTime> endTime){
 
@@ -144,6 +186,7 @@ public class AppointmentViewController {
        }
    */
     //closes the window if cancel is clicked
+
     @FXML
     private void handleCancel(){stage.close();}
     public boolean okClicked(){
